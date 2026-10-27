@@ -1,4 +1,4 @@
-name: Dry run
+name: Debug keys
 
 on:
   workflow_dispatch:
@@ -17,4 +17,4 @@ jobs:
       - name: Collect and compare, write nothing
         env:
           FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
-        run: python refresh.py api --dry-run
+        run: python refresh.py debug
