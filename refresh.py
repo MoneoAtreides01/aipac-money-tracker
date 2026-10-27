@@ -381,6 +381,27 @@ def write(seed, derived):
           f"({len(derived['conduits'])} middlemen, {len(derived['independent_expenditures'])} candidates)")
 
 
+def debug(cycle):
+    """Print raw record shapes from the endpoints that feed the page."""
+    need_key()
+    t = committee_summary(UDP, cycle)
+    print("UDP totals:", {k: t[k] for k in ("receipts", "disbursements",
+                                            "independent_expenditures", "committee_transfers")})
+
+    for label, path in (("schedule_b", "/schedules/schedule_b/"),
+                        ("schedule_e", "/schedules/schedule_e/")):
+        d = fec(path, committee_id=UDP, cycle=cycle, per_page=5)
+        print(f"== {label} pagination:", d.get("pagination"))
+        for r in d.get("results", [])[:3]:
+            keys = ["recipient_name", "recipient_committee_id", "other_id",
+                    "disbursement_amount", "disbursement_date", "candidate_id",
+                    "candidate_last_name", "support_oppose_indicator",
+                    "expenditure_amount", "expenditure_date", "memoed_subtotal",
+                    "memo_code", "entity_type", "transaction_type",
+                    "amendment_indicator", "line_number"]
+            print({k: r.get(k) for k in keys if k in r})
+
+
 def doctor(cycle):
     """Pre-flight: check the key, the endpoints and the field shapes."""
     ok = True
@@ -444,7 +465,7 @@ def compare(old_seed, old_derived, seed, derived):
 def main():
     global API_KEY
     ap = argparse.ArgumentParser()
-    ap.add_argument("source", choices=["api", "bulk", "build", "doctor"], nargs="?", default="api")
+    ap.add_argument("source", choices=["api", "bulk", "build", "doctor", "debug"], nargs="?", default="api")
     ap.add_argument("--cycle", type=int, default=0)
     ap.add_argument("--key", default="")
     ap.add_argument("--no-download", action="store_true")
@@ -463,6 +484,10 @@ def main():
 
     if args.source == "doctor":
         sys.exit(doctor(cycle))
+
+    if args.source == "debug":
+        debug(cycle)
+        return
 
     if args.dry_run and args.source == "bulk":
         raise SystemExit("dry run is only available for api; bulk parsing writes data/derived.json")
