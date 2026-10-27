@@ -192,10 +192,23 @@ def committee_transfers(cycle):
     return agg
 
 
+def latest_by_transaction(rows):
+    """Amended filings re-report a transaction under a new sub_id.
+
+    transaction_id is the committee's own identifier and repeats across
+    amendments, so keep the last version seen and drop the rest.
+    """
+    latest = {}
+    for r in rows:
+        latest[r.get("transaction_id") or r.get("sub_id")] = r
+    return list(latest.values())
+
+
 def committee_spending(cid, cycle):
     """A committee's own independent spending this cycle."""
+    rows = latest_by_transaction(paged("/schedules/schedule_e/", committee_id=cid, cycle=cycle))
     total, n, first, last = 0.0, 0, "", ""
-    for r in paged("/schedules/schedule_e/", committee_id=cid, cycle=cycle):
+    for r in rows:
         total += num(r.get("expenditure_amount"))
         n += 1
         d = day(r.get("expenditure_date"))
@@ -207,7 +220,7 @@ def committee_spending(cid, cycle):
 
 def independent_expenditures(cycle):
     agg = {}
-    for r in paged("/schedules/schedule_e/", committee_id=UDP, cycle=cycle):
+    for r in latest_by_transaction(paged("/schedules/schedule_e/", committee_id=UDP, cycle=cycle)):
         cid = str(r.get("candidate_id") or "")
         if not cid.startswith(("H", "S")):
             continue

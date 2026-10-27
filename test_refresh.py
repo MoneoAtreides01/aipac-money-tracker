@@ -37,15 +37,22 @@ SCHEDULE_B = [
 SCHEDULE_E_UDP = [
     {"candidate_id": "S6MI00426", "candidate_first_name": "HALEY", "candidate_last_name": "STEVENS",
      "candidate_office": "S", "candidate_office_state": "MI", "candidate_office_district": "",
-     "support_oppose_indicator": "S", "expenditure_amount": 10517811.0, "expenditure_date": "2026-03-01"},
+     "support_oppose_indicator": "S", "expenditure_amount": 10517811.0, "expenditure_date": "2026-03-01",
+     "transaction_id": "T1", "sub_id": "S1"},
+    # same transaction re-reported by an amended filing: must be ignored
+    {"candidate_id": "S6MI00426", "candidate_first_name": "HALEY", "candidate_last_name": "STEVENS",
+     "candidate_office": "S", "candidate_office_state": "MI", "candidate_office_district": "",
+     "support_oppose_indicator": "S", "expenditure_amount": 10517811.0, "expenditure_date": "2026-03-01",
+     "transaction_id": "T1", "sub_id": "S1b"},
     {"candidate_id": "S6MI00418", "candidate_first_name": "ABDUL", "candidate_last_name": "EL-SAYED",
      "candidate_office": "S", "candidate_office_state": "MI", "candidate_office_district": "",
-     "support_oppose_indicator": "O", "expenditure_amount": 20140901.0, "expenditure_date": "2026-03-02"},
+     "support_oppose_indicator": "O", "expenditure_amount": 20140901.0, "expenditure_date": "2026-03-02",
+     "transaction_id": "T2", "sub_id": "S2"},
 ]
 
 SCHEDULE_E_CONDUIT = [
-    {"expenditure_amount": 9000000.0, "expenditure_date": "2026-02-04"},
-    {"expenditure_amount": 795804.0, "expenditure_date": "2026-03-12"},
+    {"expenditure_amount": 9000000.0, "expenditure_date": "2026-02-04", "transaction_id": "T10"},
+    {"expenditure_amount": 795804.0, "expenditure_date": "2026-03-12", "transaction_id": "T11"},
 ]
 
 GIFTS = [
