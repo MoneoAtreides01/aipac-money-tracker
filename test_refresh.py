@@ -60,6 +60,19 @@ GIFTS = [
     {"recipient_name": "HALEY STEVENS FOR CONGRESS", "total": 5000.0},
 ]
 
+# AIPAC PAC's own Schedule B: two direct gifts (24K), one earmark transmittal
+# (24T) that must not be counted, and one memo row.
+PAC_B = [
+    {"recipient_name": "JOSH FOR JERSEY", "disbursement_amount": 70730.0,
+     "disbursement_type": "24K", "memoed_subtotal": False},
+    {"recipient_name": "HALEY STEVENS FOR CONGRESS", "disbursement_amount": 5000.0,
+     "disbursement_type": "24K", "memoed_subtotal": False},
+    {"recipient_name": "HALEY STEVENS FOR CONGRESS", "disbursement_amount": 250000.0,
+     "disbursement_type": "24T", "memoed_subtotal": False},
+    {"recipient_name": "HALEY STEVENS FOR CONGRESS", "disbursement_amount": 5000.0,
+     "disbursement_type": "24K", "memoed_subtotal": True},
+]
+
 NONPROFIT = {"organization": {"name": "AIPAC"}, "filings_with_data": [
     {"tax_prd_yr": 2023, "totrevenue": 79401004, "totfuncexpns": 83081062, "totassetsend": 170596173}]}
 
@@ -71,7 +84,8 @@ def fake_fec(path, **params):
     if path == "/schedules/schedule_b/by_recipient/":
         return {"results": GIFTS, "pagination": {"pages": 1}}
     if path == "/schedules/schedule_b/":
-        return {"results": SCHEDULE_B, "pagination": {"pages": 1}}
+        rows = PAC_B if params.get("committee_id") == refresh.AIPAC_PAC else SCHEDULE_B
+        return {"results": rows, "pagination": {"pages": 1}}
     if path == "/schedules/schedule_e/":
         cid = params.get("committee_id")
         rows = SCHEDULE_E_UDP if cid == refresh.UDP else SCHEDULE_E_CONDUIT

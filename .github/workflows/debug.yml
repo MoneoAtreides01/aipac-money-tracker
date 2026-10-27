@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: "debug | api --dry-run"
-        default: "debug"
+        description: "What to run"
+        type: choice
+        options:
+          - debug
+          - api --dry-run
+        default: debug
 
 permissions:
   contents: read
