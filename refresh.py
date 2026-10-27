@@ -251,11 +251,29 @@ def independent_expenditures(cycle, cutoff=""):
 
 
 def pac_gifts(cycle):
-    total, rows = 0.0, []
-    for r in paged("/schedules/schedule_b/by_recipient/", committee_id=AIPAC_PAC, cycle=cycle):
-        amt = num(r.get("total"))
+    """AIPAC PAC's own capped gifts, not the member earmarks it transmits.
+
+    Both are payments to candidate committees, but only direct gifts carry
+    disbursement type 24K. Earmarked transmittals are 24T and push the total
+    towards the committee's whole line 23, which is tens of millions.
+    """
+    total, rows, typed = 0.0, [], 0
+    for r in paged("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle):
+        if r.get("memoed_subtotal"):
+            continue
+        dtype = r.get("disbursement_type")
+        if not dtype:
+            continue
+        typed += 1
+        if dtype != "24K":
+            continue
+        amt = num(r.get("disbursement_amount"))
         total += amt
         rows.append({"committee": r.get("recipient_name"), "amount": round(amt, 2)})
+    if not typed:
+        raise RuntimeError(
+            "AIPAC PAC Schedule B has no disbursement_type field; refusing to "
+            "count earmarked transmittals as direct gifts.")
     return rows, round(total, 2)
 
 
