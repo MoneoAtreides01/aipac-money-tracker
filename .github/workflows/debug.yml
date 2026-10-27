@@ -1,20 +1,24 @@
-name: Dry run
+name: Debug
 
 on:
   workflow_dispatch:
+    inputs:
+      command:
+        description: "debug | api --dry-run"
+        default: "debug"
 
 permissions:
   contents: read
 
 jobs:
-  dry:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Collect and compare, write nothing
+      - name: Run
         env:
           FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
-        run: python refresh.py api --dry-run
+        run: python refresh.py ${{ inputs.command }}

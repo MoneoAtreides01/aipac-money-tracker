@@ -449,7 +449,7 @@ def debug(cycle):
     print(f"{total:>14,.0f}  TOTAL")
 
 
-def doctor(cycle):def doctor(cycle):
+def doctor(cycle):
     """Pre-flight: check the key, the endpoints and the field shapes."""
     ok = True
     print(f"python {sys.version.split()[0]}")
