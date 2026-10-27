@@ -367,6 +367,20 @@ def assemble(udp, pac, nonprofits, ies, gifts, gift_total, conduits):
     return seed, derived
 
 
+def validate(seed, derived):
+    """Refuse to publish a breakdown that contradicts the committee's own totals."""
+    udp = seed["committees"]["UDP"]
+    pairs = [
+        ("independent spending", derived["ie_total"], udp["independent_expenditures"]),
+        ("middleman transfers", derived["conduit_total"], udp["committee_transfers"]),
+    ]
+    for label, got, want in pairs:
+        if want and abs(got - want) / want > 0.02:
+            raise SystemExit(
+                f"FAIL  {label}: parsed ${got:,.0f} but the FEC summary says ${want:,.0f}. "
+                "Refusing to publish; the itemised rows are probably double counted.")
+
+
 def write(seed, derived):
     DATA.mkdir(exist_ok=True)
     (DATA / "seed.json").write_text(json.dumps(seed, indent=1), encoding="utf-8")
@@ -382,24 +396,51 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Print raw record shapes from the endpoints that feed the page."""
+    """Print the shapes the parser depends on."""
     need_key()
     t = committee_summary(UDP, cycle)
     print("UDP totals:", {k: t[k] for k in ("receipts", "disbursements",
                                             "independent_expenditures", "committee_transfers")})
 
-    for label, path in (("schedule_b", "/schedules/schedule_b/"),
-                        ("schedule_e", "/schedules/schedule_e/")):
-        d = fec(path, committee_id=UDP, cycle=cycle, per_page=5)
-        print(f"== {label} pagination:", d.get("pagination"))
-        for r in d.get("results", [])[:3]:
-            keys = ["recipient_name", "recipient_committee_id", "other_id",
-                    "disbursement_amount", "disbursement_date", "candidate_id",
-                    "candidate_last_name", "support_oppose_indicator",
-                    "expenditure_amount", "expenditure_date", "memoed_subtotal",
-                    "memo_code", "entity_type", "transaction_type",
-                    "amendment_indicator", "line_number"]
-            print({k: r.get(k) for k in keys if k in r})
+    print()
+    print("== schedule_b rows with a committee recipient")
+    n = 0
+    for r in paged("/schedules/schedule_b/", committee_id=UDP, cycle=cycle):
+        if r.get("recipient_committee_id"):
+            print({k: r.get(k) for k in ("recipient_name", "recipient_committee_id",
+                                         "disbursement_amount", "disbursement_date",
+                                         "memoed_subtotal", "sub_id", "transaction_id",
+                                         "line_number")})
+            n += 1
+            if n >= 4:
+                break
+    print("found", n)
+
+    print()
+    print("== schedule_b by_recipient")
+    d = fec("/schedules/schedule_b/by_recipient/", committee_id=UDP, cycle=cycle, per_page=5)
+    print("pagination", d.get("pagination"))
+    for r in d.get("results", [])[:3]:
+        print(r)
+
+    print()
+    print("== schedule_e rows")
+    n = 0
+    for r in paged("/schedules/schedule_e/", committee_id=UDP, cycle=cycle):
+        print({k: r.get(k) for k in ("candidate_id", "expenditure_amount", "expenditure_date",
+                                     "support_oppose_indicator", "memoed_subtotal", "sub_id",
+                                     "transaction_id", "amendment_indicator")})
+        n += 1
+        if n >= 4:
+            break
+
+    print()
+    print("== schedule_e by_candidate (House)")
+    d = fec("/schedules/schedule_e/by_candidate/", committee_id=UDP, cycle=cycle,
+            office="H", per_page=5)
+    print("pagination", d.get("pagination"))
+    for r in d.get("results", [])[:3]:
+        print(r)
 
 
 def doctor(cycle):
@@ -496,6 +537,8 @@ def main():
         seed, derived = collect_api(cycle)
     else:
         seed, derived = collect_bulk(cycle, download=not args.no_download)
+
+    validate(seed, derived)
 
     if args.dry_run:
         print("DRY RUN - nothing written")
