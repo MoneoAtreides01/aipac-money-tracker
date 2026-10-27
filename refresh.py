@@ -417,51 +417,28 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Print the shapes the parser depends on."""
+    """Check duplicate keys in the itemised rows."""
     need_key()
-    t = committee_summary(UDP, cycle)
-    print("UDP totals:", {k: t[k] for k in ("receipts", "disbursements",
-                                            "independent_expenditures", "committee_transfers")})
-
-    print()
-    print("== schedule_b rows with a committee recipient")
-    n = 0
-    for r in paged("/schedules/schedule_b/", committee_id=UDP, cycle=cycle):
-        if r.get("recipient_committee_id"):
-            print({k: r.get(k) for k in ("recipient_name", "recipient_committee_id",
-                                         "disbursement_amount", "disbursement_date",
-                                         "memoed_subtotal", "sub_id", "transaction_id",
-                                         "line_number")})
-            n += 1
-            if n >= 4:
-                break
-    print("found", n)
-
-    print()
-    print("== schedule_b by_recipient")
-    d = fec("/schedules/schedule_b/by_recipient/", committee_id=UDP, cycle=cycle, per_page=5)
-    print("pagination", d.get("pagination"))
-    for r in d.get("results", [])[:3]:
-        print(r)
-
-    print()
-    print("== schedule_e rows")
-    n = 0
-    for r in paged("/schedules/schedule_e/", committee_id=UDP, cycle=cycle):
-        print({k: r.get(k) for k in ("candidate_id", "expenditure_amount", "expenditure_date",
-                                     "support_oppose_indicator", "memoed_subtotal", "sub_id",
-                                     "transaction_id", "amendment_indicator")})
-        n += 1
-        if n >= 4:
-            break
-
-    print()
-    print("== schedule_e by_candidate (House)")
-    d = fec("/schedules/schedule_e/by_candidate/", committee_id=UDP, cycle=cycle,
-            office="H", per_page=5)
-    print("pagination", d.get("pagination"))
-    for r in d.get("results", [])[:3]:
-        print(r)
+    for label, path, date_key in (
+            ("schedule_b", "/schedules/schedule_b/", "disbursement_date"),
+            ("schedule_e", "/schedules/schedule_e/", "expenditure_date")):
+        rows = list(paged(path, committee_id=UDP, cycle=cycle))
+        amt_key = "disbursement_amount" if label == "schedule_b" else "expenditure_amount"
+        print(label, "rows", len(rows))
+        for key in ("transaction_id", "sub_id"):
+            seen = {}
+            for r in rows:
+                seen[r.get(key)] = seen.get(r.get(key), 0) + 1
+            dupes = {k: v for k, v in seen.items() if v and v > 1}
+            print(f"  unique {key}: {len(seen) - (1 if None in seen else 0)}, duplicated keys: {len(dupes)}")
+        by_tx = {}
+        for r in rows:
+            by_tx.setdefault(r.get("transaction_id"), r)
+        total = sum(float(r.get(amt_key) or 0) for r in rows)
+        dedup = sum(float(r.get(amt_key) or 0) for r in by_tx.values())
+        print(f"  sum {total:,.0f}  deduped by transaction_id {dedup:,.0f}")
+        singles = [r for r in rows if sum(1 for x in rows if x.get("transaction_id") == r.get("transaction_id")) == 1]
+        print(f"  rows with a unique transaction_id: {len(singles)}")
 
 
 def doctor(cycle):
