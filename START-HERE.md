@@ -10,7 +10,7 @@ page needs no server, database or key.
    In the repo: Settings > Secrets and variables > Actions > New repository
    secret, named `FEC_API_KEY`.
 3. Settings > Pages > deploy from branch, root. The page is then at
-   `https://<owner>.github.io/<repo>/AIPAC-Money-Tracker.html`.
+   `https://<owner>.github.io/<repo>/`.
 
 The included workflow runs daily at 11:00 UTC and commits the rebuilt page only
 when a number or a row changed. Nothing else is required.

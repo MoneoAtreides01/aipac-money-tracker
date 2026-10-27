@@ -11,7 +11,7 @@ OUT = ROOT / "dist" / "AIPAC-Money-Tracker-handover.zip"
 INCLUDE = [
     "START-HERE.md", "README.md", "LICENSE", "requirements.txt", ".env.example", ".gitignore",
     "refresh.py", "parse_bulk.py", "make_seed.py", "ingest.py", "build_site.py",
-    "test_refresh.py", "AIPAC-Money-Tracker.html",
+    "test_refresh.py", "AIPAC-Money-Tracker.html", "index.html",
     "site/template.html", "site/index.html",
     "handover/index.html", "handover/INTEGRATION.md", "handover/data.json",
     "handover/embed-example.html",

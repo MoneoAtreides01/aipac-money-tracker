@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "aipac-tracker-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add AIPAC-Money-Tracker.html site/index.html data/seed.json data/derived.json data/last_refresh.txt
+          git add index.html AIPAC-Money-Tracker.html site/index.html data/seed.json data/derived.json data/last_refresh.txt
           if git diff --cached --quiet; then
             echo "No change in the filings today."
             exit 0

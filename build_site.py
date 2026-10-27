@@ -46,6 +46,11 @@ def main():
     out2.write_text(standalone, encoding="utf-8")
     print(f"wrote {out2} ({out2.stat().st_size/1024:.0f} KB)")
 
+    # Root index.html so a static host serves the page at the bare URL.
+    out3 = HERE / "index.html"
+    out3.write_text(standalone, encoding="utf-8")
+    print(f"wrote {out3} ({out3.stat().st_size/1024:.0f} KB)")
+
 
 if __name__ == "__main__":
     main()
