@@ -443,23 +443,24 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Break down UDP's committee transfers by recipient and line."""
+    """Inspect AIPAC PAC's Schedule B rows to separate gifts from earmarks."""
     need_key()
-    agg = {}
-    for r in paged("/schedules/schedule_b/", committee_id=UDP, cycle=cycle):
-        rid = str(r.get("recipient_committee_id") or "")
-        if not rid.startswith("C"):
-            continue
-        key = (rid, r.get("recipient_name"), r.get("line_number"))
-        cur = agg.setdefault(key, [0.0, 0, set()])
-        cur[0] += num(r.get("disbursement_amount"))
-        cur[1] += 1
-        cur[2].add(r.get("transaction_id"))
-    total = 0.0
-    for (rid, name, line), (amount, count, tids) in sorted(agg.items(), key=lambda kv: -kv[1][0]):
-        total += amount
-        print(f"{amount:>14,.0f}  {count:>3} rows  line {line}  {rid}  {name}")
-    print(f"{total:>14,.0f}  TOTAL")
+    d = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=5)
+    print("pagination", d.get("pagination"))
+    for r in d.get("results", [])[:3]:
+        print({k: v for k, v in r.items() if k in (
+            "recipient_name", "disbursement_amount", "disbursement_type",
+            "disbursement_type_full", "transaction_type", "entity_type",
+            "memoed_subtotal", "memo_code", "line_number")})
+
+    print()
+    page1 = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=100)
+    types = {}
+    for r in page1.get("results", []):
+        k = (r.get("disbursement_type"), r.get("entity_type"), r.get("memoed_subtotal"))
+        types[k] = types.get(k, 0) + 1
+    for k, v in sorted(types.items(), key=lambda kv: -kv[1]):
+        print(v, k)
 
 
 def doctor(cycle):
