@@ -60,15 +60,36 @@ def fec(path, **params):
 
 
 def paged(path, **params):
+    """Follow whichever pagination the endpoint actually uses.
+
+    Schedule A/B/E use keyset pagination (last_indexes); aggregate endpoints
+    use page numbers. Sending page= to a keyset endpoint silently returns
+    page one again, which is how an earlier version multiplied the totals.
+    """
+    last = {}
     page = 1
     while True:
-        d = fec(path, page=page, per_page=100, **params)
-        for row in d.get("results", []):
-            yield row
-        pages = d.get("pagination", {}).get("pages", 1)
-        if page >= pages:
+        q = dict(params)
+        if last:
+            q.update(last)
+        else:
+            q["page"] = page
+        d = fec(path, per_page=100, **q)
+        rows = d.get("results", [])
+        if not rows:
             break
-        page += 1
+        for row in rows:
+            yield row
+        pag = d.get("pagination") or {}
+        li = pag.get("last_indexes")
+        if li:
+            if li == last:
+                break
+            last = li
+        else:
+            if page >= pag.get("pages", 1):
+                break
+            page += 1
         time.sleep(0.2)
 
 

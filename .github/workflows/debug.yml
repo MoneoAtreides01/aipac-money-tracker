@@ -1,4 +1,4 @@
-name: Debug FEC shapes
+name: Dry run
 
 on:
   workflow_dispatch:
@@ -7,14 +7,14 @@ permissions:
   contents: read
 
 jobs:
-  debug:
+  dry:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Dump record shapes
+      - name: Collect and compare, write nothing
         env:
           FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
-        run: python refresh.py debug
+        run: python refresh.py api --dry-run
