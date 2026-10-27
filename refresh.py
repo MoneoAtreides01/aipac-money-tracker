@@ -170,7 +170,7 @@ def committee_summary(cid, cycle):
     }
 
 
-def committee_transfers(cycle):
+def committee_transfers(cycle, cutoff=""):
     """UDP's outbound committee-to-committee transfers, from Schedule B."""
     agg = {}
     for r in paged("/schedules/schedule_b/", committee_id=UDP, cycle=cycle):
@@ -179,6 +179,8 @@ def committee_transfers(cycle):
             continue
         amt = num(r.get("disbursement_amount"))
         d = day(r.get("disbursement_date"))
+        if cutoff and d and d > cutoff:
+            continue
         cur = agg.setdefault(rid, {"name": r.get("recipient_name") or rid,
                                    "amount": 0.0, "transfers": 0, "first": "9999-99-99"})
         cur["amount"] += amt
@@ -204,25 +206,30 @@ def latest_by_transaction(rows):
     return list(latest.values())
 
 
-def committee_spending(cid, cycle):
+def committee_spending(cid, cycle, cutoff=""):
     """A committee's own independent spending this cycle."""
     rows = latest_by_transaction(paged("/schedules/schedule_e/", committee_id=cid, cycle=cycle))
     total, n, first, last = 0.0, 0, "", ""
     for r in rows:
+        d = day(r.get("expenditure_date"))
+        if cutoff and d and d > cutoff:
+            continue
         total += num(r.get("expenditure_amount"))
         n += 1
-        d = day(r.get("expenditure_date"))
         if d:
             first = min(first or d, d)
             last = max(last or d, d)
     return round(total, 2), n, first, last
 
 
-def independent_expenditures(cycle):
+def independent_expenditures(cycle, cutoff=""):
     agg = {}
     for r in latest_by_transaction(paged("/schedules/schedule_e/", committee_id=UDP, cycle=cycle)):
         cid = str(r.get("candidate_id") or "")
         if not cid.startswith(("H", "S")):
+            continue
+        d = day(r.get("expenditure_date"))
+        if cutoff and d and d > cutoff:
             continue
         side = "support" if r.get("support_oppose_indicator") == "S" else "oppose"
         key = (cid, side)
@@ -259,8 +266,9 @@ def collect_api(cycle):
     udp = committee_summary(UDP, cycle)
     pac = committee_summary(AIPAC_PAC, cycle)
 
+    cutoff = udp["coverage_end"]
     print("FEC API: UDP committee transfers", flush=True)
-    transfers = committee_transfers(cycle)
+    transfers = committee_transfers(cycle, cutoff)
 
     conduits = []
     for i, (cid, t) in enumerate(sorted(transfers.items(), key=lambda kv: -kv[1]["amount"]), 1):
@@ -270,7 +278,7 @@ def collect_api(cycle):
             info = fec(f"/committee/{cid}/", cycle=cycle)["results"][0]
         except Exception:
             pass
-        spent, n, first_spend, last_spend = committee_spending(cid, cycle)
+        spent, n, first_spend, last_spend = committee_spending(cid, cycle, cutoff)
         conduits.append({
             "id": cid,
             "name": t["name"],
@@ -287,7 +295,7 @@ def collect_api(cycle):
         })
 
     print("FEC API: independent expenditures", flush=True)
-    ies = independent_expenditures(cycle)
+    ies = independent_expenditures(cycle, cutoff)
 
     print("FEC API: AIPAC PAC gifts", flush=True)
     gifts, gift_total = pac_gifts(cycle)
