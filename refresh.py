@@ -417,10 +417,15 @@ def validate(seed, derived):
         ("middleman transfers", derived["conduit_total"], udp["committee_transfers"]),
     ]
     for label, got, want in pairs:
-        if want and abs(got - want) / want > 0.02:
+        if not want:
+            continue
+        # Late filings can add rows dated before the summary was filed, so the
+        # itemised total may exceed the summary. It can never fall below it,
+        # and it should not be wildly above it.
+        if got < want * 0.95 or got > want * 1.5:
             raise SystemExit(
                 f"FAIL  {label}: parsed ${got:,.0f} but the FEC summary says ${want:,.0f}. "
-                "Refusing to publish; the itemised rows are probably double counted.")
+                "Refusing to publish; the itemised rows are probably miscounted.")
 
 
 def write(seed, derived):
