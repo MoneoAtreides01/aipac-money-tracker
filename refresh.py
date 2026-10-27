@@ -37,16 +37,26 @@ API_KEY = os.environ.get("FEC_API_KEY", "").strip()
 
 
 # ---------------------------------------------------------------- transport
-def http_json(url, tries=4):
+def http_json(url, tries=3):
     for attempt in range(tries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
-            if e.code in (429, 500, 502, 503, 504) and attempt < tries - 1:
-                wait = (20 if e.code == 429 else 5) * (attempt + 1)
-                print(f"  rate limited, waiting {wait}s", file=sys.stderr)
+            if e.code == 429:
+                # The daily key quota is hourly. Wait once, briefly; retrying
+                # every page for half an hour is worse than failing.
+                if attempt == 0:
+                    print("  rate limited; waiting 15s", file=sys.stderr)
+                    time.sleep(15)
+                    continue
+                raise RuntimeError(
+                    "FEC rate limit reached. The key's hourly quota is used up; "
+                    "re-run after the window resets.") from e
+            if e.code in (500, 502, 503, 504) and attempt < tries - 1:
+                wait = 5 * (attempt + 1)
+                print(f"  server error {e.code}; waiting {wait}s", file=sys.stderr)
                 time.sleep(wait)
                 continue
             raise
