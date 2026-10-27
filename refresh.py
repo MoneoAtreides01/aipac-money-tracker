@@ -430,31 +430,26 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Check duplicate keys in the itemised rows."""
+    """Break down UDP's committee transfers by recipient and line."""
     need_key()
-    for label, path, date_key in (
-            ("schedule_b", "/schedules/schedule_b/", "disbursement_date"),
-            ("schedule_e", "/schedules/schedule_e/", "expenditure_date")):
-        rows = list(paged(path, committee_id=UDP, cycle=cycle))
-        amt_key = "disbursement_amount" if label == "schedule_b" else "expenditure_amount"
-        print(label, "rows", len(rows))
-        for key in ("transaction_id", "sub_id"):
-            seen = {}
-            for r in rows:
-                seen[r.get(key)] = seen.get(r.get(key), 0) + 1
-            dupes = {k: v for k, v in seen.items() if v and v > 1}
-            print(f"  unique {key}: {len(seen) - (1 if None in seen else 0)}, duplicated keys: {len(dupes)}")
-        by_tx = {}
-        for r in rows:
-            by_tx.setdefault(r.get("transaction_id"), r)
-        total = sum(float(r.get(amt_key) or 0) for r in rows)
-        dedup = sum(float(r.get(amt_key) or 0) for r in by_tx.values())
-        print(f"  sum {total:,.0f}  deduped by transaction_id {dedup:,.0f}")
-        singles = [r for r in rows if sum(1 for x in rows if x.get("transaction_id") == r.get("transaction_id")) == 1]
-        print(f"  rows with a unique transaction_id: {len(singles)}")
+    agg = {}
+    for r in paged("/schedules/schedule_b/", committee_id=UDP, cycle=cycle):
+        rid = str(r.get("recipient_committee_id") or "")
+        if not rid.startswith("C"):
+            continue
+        key = (rid, r.get("recipient_name"), r.get("line_number"))
+        cur = agg.setdefault(key, [0.0, 0, set()])
+        cur[0] += num(r.get("disbursement_amount"))
+        cur[1] += 1
+        cur[2].add(r.get("transaction_id"))
+    total = 0.0
+    for (rid, name, line), (amount, count, tids) in sorted(agg.items(), key=lambda kv: -kv[1][0]):
+        total += amount
+        print(f"{amount:>14,.0f}  {count:>3} rows  line {line}  {rid}  {name}")
+    print(f"{total:>14,.0f}  TOTAL")
 
 
-def doctor(cycle):
+def doctor(cycle):def doctor(cycle):
     """Pre-flight: check the key, the endpoints and the field shapes."""
     ok = True
     print(f"python {sys.version.split()[0]}")
