@@ -44,8 +44,8 @@ def http_json(url, tries=4):
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
-            if e.code == 429 and attempt < tries - 1:
-                wait = 20 * (attempt + 1)
+            if e.code in (429, 500, 502, 503, 504) and attempt < tries - 1:
+                wait = (20 if e.code == 429 else 5) * (attempt + 1)
                 print(f"  rate limited, waiting {wait}s", file=sys.stderr)
                 time.sleep(wait)
                 continue
