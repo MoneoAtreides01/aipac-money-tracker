@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embed example - AIPAC Money Tracker</title>
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #e9e5da; color: #14120d; }
+  .host { max-width: 1080px; margin: 0 auto; padding: 28px 16px 60px; }
+  .host p { font-size: 14px; color: #575246; margin: 0 0 16px; }
+  .frame { width: 100%; border: 0; display: block; height: 1500px; background: #f7f4ec; }
+  @media (max-width: 700px) { .frame { height: 2400px; } }
+</style>
+</head>
+<body>
+  <div class="host">
+    <p>Example host page. The tracker below is a single iframe pointing at index.html.</p>
+    <iframe class="frame" src="./index.html" title="AIPAC Money Tracker" loading="lazy"></iframe>
+  </div>
+</body>
+</html>

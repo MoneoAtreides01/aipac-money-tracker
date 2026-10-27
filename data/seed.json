@@ -1,0 +1,225 @@
+{
+ "built_at": "2026-10-27",
+ "coverage_end": "2026-10-14",
+ "announcement": {
+  "date": "2026-10-21",
+  "quote": "Endorsements, direct PAC contributions, and earmarking will no longer be part of our approach.",
+  "framing": "a more strategic, consequential, and nimble political operation",
+  "continuation": "Mobilizing greater resources for AIPAC, pro-Israel candidates and our super PAC is critical.",
+  "source": "AIPAC email to supporters, reported by Middle East Eye, The Guardian and Jewish Insider",
+  "url": "https://www.middleeasteye.net/news/pro-israel-lobbying-group-aipac-ends-endorsements-direct-funding-us-candidates"
+ },
+ "committees": {
+  "UDP": {
+   "id": "C00799031",
+   "name": "United Democracy Project",
+   "kind": "Super PAC (independent expenditure only)",
+   "cycle": 2026,
+   "receipts": 112820861.12,
+   "individual": 108557590.22,
+   "disbursements": 85057423.26,
+   "independent_expenditures": 53603927.44,
+   "cash_on_hand": 56656632.96,
+   "committee_transfers": 13131200.0,
+   "coverage_end": "2026-10-14",
+   "url": "https://www.fec.gov/data/committee/C00799031/"
+  },
+  "AIPAC_PAC": {
+   "id": "C00797670",
+   "name": "American Israel Public Affairs Committee PAC",
+   "kind": "Qualified PAC",
+   "cycle": 2026,
+   "receipts": 57771930.54,
+   "individual": 54915730.01,
+   "disbursements": 56248372.98,
+   "independent_expenditures": 0.0,
+   "cash_on_hand": 2551164.34,
+   "committee_transfers": 53289529.53,
+   "coverage_end": "2026-10-14",
+   "url": "https://www.fec.gov/data/committee/C00797670/"
+  }
+ },
+ "nonprofit": {
+  "AIPAC_C4": {
+   "name": "American Israel Public Affairs Committee",
+   "ein": "53-0217164",
+   "status": "501(c)(4) social welfare organisation",
+   "donor_disclosure": "none",
+   "history": [
+    {
+     "year": 2011,
+     "revenue": 66862011,
+     "expenses": 61270283,
+     "assets": 105064763
+    },
+    {
+     "year": 2012,
+     "revenue": 74237179,
+     "expenses": 67978782,
+     "assets": 109997108
+    },
+    {
+     "year": 2013,
+     "revenue": 51833293,
+     "expenses": 44356570,
+     "assets": 120632230
+    },
+    {
+     "year": 2014,
+     "revenue": 77709827,
+     "expenses": 69267598,
+     "assets": 128878738
+    },
+    {
+     "year": 2015,
+     "revenue": 88561639,
+     "expenses": 102306859,
+     "assets": 115580564
+    },
+    {
+     "year": 2016,
+     "revenue": 105949429,
+     "expenses": 103897542,
+     "assets": 125934203
+    },
+    {
+     "year": 2017,
+     "revenue": 107755186,
+     "expenses": 99327173,
+     "assets": 125102348
+    },
+    {
+     "year": 2018,
+     "revenue": 104740110,
+     "expenses": 102398623,
+     "assets": 128109746
+    },
+    {
+     "year": 2019,
+     "revenue": 133892601,
+     "expenses": 109829047,
+     "assets": 156925281
+    },
+    {
+     "year": 2020,
+     "revenue": 96590240,
+     "expenses": 92128734,
+     "assets": 154433955
+    },
+    {
+     "year": 2021,
+     "revenue": 78256627,
+     "expenses": 63521153,
+     "assets": 179395963
+    },
+    {
+     "year": 2022,
+     "revenue": 73512996,
+     "expenses": 79102769,
+     "assets": 163965523
+    },
+    {
+     "year": 2023,
+     "revenue": 79401004,
+     "expenses": 83081062,
+     "assets": 170596173
+    }
+   ],
+   "revenue_total": 1139302142,
+   "url": "https://projects.propublica.org/nonprofits/organizations/530217164"
+  },
+  "AIEF_C3": {
+   "name": "American Israel Education Foundation Inc",
+   "ein": "52-1623781",
+   "status": "501(c)(3) charity",
+   "donor_disclosure": "none (Schedule B confidential)",
+   "history": [
+    {
+     "year": 2011,
+     "revenue": 34233986,
+     "expenses": 32770867,
+     "assets": 47056772
+    },
+    {
+     "year": 2012,
+     "revenue": 45595806,
+     "expenses": 42549522,
+     "assets": 56769809
+    },
+    {
+     "year": 2013,
+     "revenue": 43681414,
+     "expenses": 45682256,
+     "assets": 58064030
+    },
+    {
+     "year": 2014,
+     "revenue": 55234555,
+     "expenses": 50266476,
+     "assets": 62888505
+    },
+    {
+     "year": 2015,
+     "revenue": 82530740,
+     "expenses": 50972194,
+     "assets": 75244908
+    },
+    {
+     "year": 2016,
+     "revenue": 60036469,
+     "expenses": 57117073,
+     "assets": 86004344
+    },
+    {
+     "year": 2017,
+     "revenue": 65374873,
+     "expenses": 56112739,
+     "assets": 88871469
+    },
+    {
+     "year": 2018,
+     "revenue": 80921137,
+     "expenses": 57243031,
+     "assets": 113335383
+    },
+    {
+     "year": 2019,
+     "revenue": 88349547,
+     "expenses": 71339220,
+     "assets": 130942829
+    },
+    {
+     "year": 2020,
+     "revenue": 60197572,
+     "expenses": 61295487,
+     "assets": 133292269
+    },
+    {
+     "year": 2021,
+     "revenue": 65043938,
+     "expenses": 41438845,
+     "assets": 162256798
+    },
+    {
+     "year": 2022,
+     "revenue": 59688344,
+     "expenses": 44641574,
+     "assets": 165821131
+    },
+    {
+     "year": 2023,
+     "revenue": 69985088,
+     "expenses": 52203569,
+     "assets": 186940058
+    }
+   ],
+   "revenue_total": 810873469,
+   "url": "https://projects.propublica.org/nonprofits/organizations/521623781"
+  }
+ },
+ "reported_figures": {
+  "members_direct_2026": 90000000,
+  "udp_2024_raised": 87100000,
+  "udp_2026_spent_primary_note": "about 40% of primary spending routed through conduit PACs, per Politico reporting cited by FactCheck.org"
+ }
+}

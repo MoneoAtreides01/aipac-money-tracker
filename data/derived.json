@@ -1,0 +1,1558 @@
+{
+ "conduits": [
+  {
+   "id": "C00936724",
+   "name": "ELECT CHICAGO WOMEN AKA ECW",
+   "amount": 4011200.0,
+   "transfers": 1,
+   "first_seen": "2026-02-02",
+   "kind": "Super PAC",
+   "connected": null,
+   "source": "FEC oth26.zip",
+   "spent": 9795804.0,
+   "spend_txns": 64,
+   "first_spend": "2026-02-04",
+   "last_spend": "2026-03-12"
+  },
+  {
+   "id": "C00854299",
+   "name": "BOLD AMERICA",
+   "amount": 2800000.0,
+   "transfers": 7,
+   "first_seen": "2026-05-01",
+   "kind": "Super PAC",
+   "connected": "DEMOCRATS 2024",
+   "source": "FEC oth26.zip",
+   "spent": 8300087.0,
+   "spend_txns": 58,
+   "first_spend": "2026-01-26",
+   "last_spend": "2026-08-11"
+  },
+  {
+   "id": "C00863472",
+   "name": "EDW ACTION FUND",
+   "amount": 2350000.0,
+   "transfers": 6,
+   "first_seen": "2026-04-14",
+   "kind": "Hybrid PAC (non-contribution)",
+   "connected": "PRO-CHOICE MAJORITY 2024",
+   "source": "FEC oth26.zip",
+   "spent": 1368090.0,
+   "spend_txns": 30,
+   "first_spend": "2026-02-25",
+   "last_spend": "2026-08-07"
+  },
+  {
+   "id": "C00757419",
+   "name": "SD PAC",
+   "amount": 1650000.0,
+   "transfers": 2,
+   "first_seen": "2026-05-18",
+   "kind": "Hybrid PAC",
+   "connected": "CRUSH MAGA PAC",
+   "source": "FEC oth26.zip",
+   "spent": 161495.0,
+   "spend_txns": 7,
+   "first_spend": "2025-06-11",
+   "last_spend": "2025-06-17"
+  },
+  {
+   "id": "C00935049",
+   "name": "AFFORDABLE CHICAGO NOW! (ACN)",
+   "amount": 1320000.0,
+   "transfers": 1,
+   "first_seen": "2026-02-02",
+   "kind": "Super PAC",
+   "connected": null,
+   "source": "FEC oth26.zip",
+   "spent": 4379237.0,
+   "spend_txns": 24,
+   "first_spend": "2026-02-04",
+   "last_spend": "2026-03-10"
+  },
+  {
+   "id": "C00950600",
+   "name": "PALMETTO ACTION",
+   "amount": 1000000.0,
+   "transfers": 1,
+   "first_seen": "2026-08-04",
+   "kind": "Super PAC",
+   "connected": null,
+   "source": "FEC oth26.zip",
+   "spent": 3604572.0,
+   "spend_txns": 10,
+   "first_spend": "2026-05-21",
+   "last_spend": "2026-06-10"
+  }
+ ],
+ "conduit_total": 13131200.0,
+ "independent_expenditures": [
+  {
+   "candidate_id": "S6MI00418",
+   "name": "EL-SAYED, ABDUL",
+   "party": "DEM",
+   "office": "Senate",
+   "state": "MI",
+   "district": "",
+   "side": "oppose",
+   "amount": 20140901.0
+  },
+  {
+   "candidate_id": "S6MI00426",
+   "name": "STEVENS, HALEY",
+   "party": "DEM",
+   "office": "Senate",
+   "state": "MI",
+   "district": "",
+   "side": "support",
+   "amount": 10517811.0
+  },
+  {
+   "candidate_id": "H6MD05321",
+   "name": "BOAFO, ADRIAN",
+   "party": "DEM",
+   "office": "House",
+   "state": "MD",
+   "district": "5",
+   "side": "support",
+   "amount": 5734008.0
+  },
+  {
+   "candidate_id": "H4IL07177",
+   "name": "CONYEARS-ERVIN, MELISSA",
+   "party": "DEM",
+   "office": "House",
+   "state": "IL",
+   "district": "7",
+   "side": "support",
+   "amount": 4968493.0
+  },
+  {
+   "candidate_id": "H2KY04121",
+   "name": "MASSIE, THOMAS H.",
+   "party": "REP",
+   "office": "House",
+   "state": "KY",
+   "district": "4",
+   "side": "oppose",
+   "amount": 3575106.0
+  },
+  {
+   "candidate_id": "H8MO01143",
+   "name": "BUSH, CORI",
+   "party": "DEM",
+   "office": "House",
+   "state": "MO",
+   "district": "1",
+   "side": "oppose",
+   "amount": 2435145.0
+  },
+  {
+   "candidate_id": "H6NJ11245",
+   "name": "MALINOWSKI, TOM",
+   "party": "DEM",
+   "office": "House",
+   "state": "NJ",
+   "district": "11",
+   "side": "oppose",
+   "amount": 2326917.0
+  },
+  {
+   "candidate_id": "H0CA15213",
+   "name": "WAHAB, AISHA",
+   "party": "DEM",
+   "office": "House",
+   "state": "CA",
+   "district": "14",
+   "side": "oppose",
+   "amount": 1642138.0
+  },
+  {
+   "candidate_id": "H6CA14163",
+   "name": "HERNANDEZ, MELISSA",
+   "party": "DEM",
+   "office": "House",
+   "state": "CA",
+   "district": "14",
+   "side": "support",
+   "amount": 825291.0
+  },
+  {
+   "candidate_id": "H4MO01134",
+   "name": "BELL, WESLEY",
+   "party": "DEM",
+   "office": "House",
+   "state": "MO",
+   "district": "1",
+   "side": "support",
+   "amount": 685625.0
+  },
+  {
+   "candidate_id": "H6KY04171",
+   "name": "GALLREIN, ED",
+   "party": "REP",
+   "office": "House",
+   "state": "KY",
+   "district": "4",
+   "side": "support",
+   "amount": 579316.0
+  },
+  {
+   "candidate_id": "H6IL07339",
+   "name": "FRIEDMAN, JASON",
+   "party": "DEM",
+   "office": "House",
+   "state": "IL",
+   "district": "7",
+   "side": "oppose",
+   "amount": 59748.0
+  },
+  {
+   "candidate_id": "H4TX23120",
+   "name": "HERRERA, BRANDON",
+   "party": "REP",
+   "office": "House",
+   "state": "TX",
+   "district": "23",
+   "side": "oppose",
+   "amount": -45.0
+  },
+  {
+   "candidate_id": "H4IN08108",
+   "name": "HOSTETTLER, JOHN N",
+   "party": "REP",
+   "office": "House",
+   "state": "IN",
+   "district": "8",
+   "side": "oppose",
+   "amount": -6917.0
+  },
+  {
+   "candidate_id": "H0IL07167",
+   "name": "COLLINS, KINA",
+   "party": "DEM",
+   "office": "House",
+   "state": "IL",
+   "district": "7",
+   "side": "oppose",
+   "amount": -9678.0
+  },
+  {
+   "candidate_id": "H8CA34266",
+   "name": "GOMEZ, JIMMY",
+   "party": "DEM",
+   "office": "House",
+   "state": "CA",
+   "district": "34",
+   "side": "support",
+   "amount": -28159.0
+  },
+  {
+   "candidate_id": "H0NY16143",
+   "name": "BOWMAN, JAMAAL",
+   "party": "DEM",
+   "office": "House",
+   "state": "NY",
+   "district": "16",
+   "side": "oppose",
+   "amount": -31052.0
+  }
+ ],
+ "ie_total": 53414648.0,
+ "aipac_pac_candidate_gifts": [
+  {
+   "committee": "JOSH FOR JERSEY",
+   "amount": 70730.0
+  },
+  {
+   "committee": "JOSH RILEY FOR CONGRESS",
+   "amount": 40175.0
+  },
+  {
+   "committee": "SCHOLTEN FOR CONGRESS",
+   "amount": 26884.0
+  },
+  {
+   "committee": "TEXANS FOR HENRY CUELLAR CONGRESSIONAL CAMPAIGN",
+   "amount": 21800.0
+  },
+  {
+   "committee": "TED LIEU FOR CONGRESS",
+   "amount": 18396.0
+  },
+  {
+   "committee": "FRIENDS OF JIMMY PATRONIS, INC.",
+   "amount": 14994.0
+  },
+  {
+   "committee": "BRIAN JACK FOR CONGRESS",
+   "amount": 14994.0
+  },
+  {
+   "committee": "BELL FOR MISSOURI",
+   "amount": 14994.0
+  },
+  {
+   "committee": "DARREN SOTO FOR CONGRESS",
+   "amount": 14994.0
+  },
+  {
+   "committee": "JIM JORDAN FOR CONGRESS",
+   "amount": 14994.0
+  },
+  {
+   "committee": "PETE RICKETTS FOR SENATE",
+   "amount": 14494.0
+  },
+  {
+   "committee": "MATT VAN EPPS FOR CONGRESS",
+   "amount": 13494.0
+  },
+  {
+   "committee": "LARSON FOR CONGRESS",
+   "amount": 10994.0
+  },
+  {
+   "committee": "CINDY HYDE-SMITH FOR US SENATE",
+   "amount": 10994.0
+  },
+  {
+   "committee": "EMMER FOR CONGRESS",
+   "amount": 10494.0
+  },
+  {
+   "committee": "FEDORCHAK FOR ND",
+   "amount": 10000.0
+  },
+  {
+   "committee": "MELISSA BEAN FOR CONGRESS",
+   "amount": 10000.0
+  },
+  {
+   "committee": "CLAY FULLER FOR CONGRESS, INC.",
+   "amount": 10000.0
+  },
+  {
+   "committee": "JERRY CARL FOR CONGRESS",
+   "amount": 10000.0
+  },
+  {
+   "committee": "LALOTA FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "KEAN FOR CONGRESS INC",
+   "amount": 9994.0
+  },
+  {
+   "committee": "FINSTAD FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "SUOZZI FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "EMILIA SYKES FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "LAWLER FOR CONGRESS, INC.",
+   "amount": 9994.0
+  },
+  {
+   "committee": "DEBBIE WASSERMAN SCHULTZ FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JARED MOSKOWITZ FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "TORRES FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "WEBER FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "AARON BEAN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JAKE AUCHINCLOSS FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "STRICKLAND FOR WASHINGTON",
+   "amount": 9994.0
+  },
+  {
+   "committee": "CITIZENS FOR BOYLE",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JOE NEGUSE FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "RUDY FOR INDIANA",
+   "amount": 9994.0
+  },
+  {
+   "committee": "GUY FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "COLLINS FOR SENATOR",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JOE WILSON FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "DON DAVIS FOR NC",
+   "amount": 9994.0
+  },
+  {
+   "committee": "COTTON FOR SENATE, INC.",
+   "amount": 9994.0
+  },
+  {
+   "committee": "FRIENDS FOR GREGORY MEEKS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "FRIENDS TO ELECT DR. GREG MURPHY TO CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "VARGAS FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "RANDY FINE FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MIKE BOST FOR CONGRESS COMMITTEE",
+   "amount": 9994.0
+  },
+  {
+   "committee": "ROB FOR PA",
+   "amount": 9994.0
+  },
+  {
+   "committee": "LANDSMAN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MARK ALFORD FOR CONGRESS, INC.",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MARIE FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MACKENZIE FOR CONGRESS COMMITTEE",
+   "amount": 9994.0
+  },
+  {
+   "committee": "AUGUST PFLUGER FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "CAREY FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "FRIENDS OF CHRIS SMITH",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JEFF CRANK FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "CHRIS COONS FOR DELAWARE",
+   "amount": 9994.0
+  },
+  {
+   "committee": "VICENTE GONZALEZ FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "WESTERMAN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "BILIRAKIS FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MCDOWELL FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "SMUCKER FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "ALASKANS FOR NICK BEGICH",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MEUSER FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JAKE ELLZEY FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "STEVE DAINES FOR MONTANA",
+   "amount": 9994.0
+  },
+  {
+   "committee": "GARBARINO FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "VINCE FONG FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MANN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "NICOLE FOR NEW YORK",
+   "amount": 9994.0
+  },
+  {
+   "committee": "SUSIE LEE FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "KWEISI MFUME FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MONICA FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MIKE FLOOD FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "VALADAO FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "CHUCK EDWARDS FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "DAN CRENSHAW FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "VAN DREW FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "LUZ RIVAS FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "MRVAN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "KATHERINE CLARK FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "DEREK SCHMIDT FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "HERN FOR CONGRESS",
+   "amount": 9994.0
+  },
+  {
+   "committee": "JIM COSTA FOR CONGRESS",
+   "amount": 9497.0
+  },
+  {
+   "committee": "VOTE BAUMGARTNER FOR CONGRESS",
+   "amount": 9494.0
+  },
+  {
+   "committee": "KEN CALVERT FOR CONGRESS COMMITTEE",
+   "amount": 8496.0
+  },
+  {
+   "committee": "GRAVES FOR CONGRESS",
+   "amount": 7094.0
+  },
+  {
+   "committee": "TEXANS FOR SENATOR JOHN CORNYN INC.",
+   "amount": 6994.0
+  },
+  {
+   "committee": "JEFF HURD FOR CONGRESS",
+   "amount": 6869.0
+  },
+  {
+   "committee": "STUTZMAN FOR CONGRESS",
+   "amount": 6494.0
+  },
+  {
+   "committee": "CITIZENS FOR JOHN RUTHERFORD",
+   "amount": 5994.0
+  },
+  {
+   "committee": "ROB WITTMAN FOR CONGRESS",
+   "amount": 5994.0
+  },
+  {
+   "committee": "VAN ORDEN FOR CONGRESS",
+   "amount": 5994.0
+  },
+  {
+   "committee": "KIGGANS FOR CONGRESS",
+   "amount": 5994.0
+  },
+  {
+   "committee": "MOOLENAAR FOR CONGRESS",
+   "amount": 5994.0
+  },
+  {
+   "committee": "MILLER-MEEKS FOR CONGRESS",
+   "amount": 5994.0
+  },
+  {
+   "committee": "JIMMY PANETTA FOR CONGRESS",
+   "amount": 5496.0
+  },
+  {
+   "committee": "BRIAN FITZPATRICK FOR ALL OF US",
+   "amount": 5494.0
+  },
+  {
+   "committee": "SHERMAN FOR CONGRESS",
+   "amount": 5494.0
+  },
+  {
+   "committee": "LOIS FRANKEL FOR CONGRESS",
+   "amount": 5244.0
+  },
+  {
+   "committee": "HALEY STEVENS FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "COLLINS FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "MOULTON FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "ANGIE CRAIG FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "BRAD KNOTT FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "GAINES FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "ALVARADO FOR KENTUCKY",
+   "amount": 5000.0
+  },
+  {
+   "committee": "CLIMER FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "JACE YARBROUGH FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "MARTY JACKLEY FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "CITIZENS TO ELECT RICK LARSEN",
+   "amount": 5000.0
+  },
+  {
+   "committee": "GALLREIN FOR CONGRESS",
+   "amount": 5000.0
+  },
+  {
+   "committee": "KEVIN KILEY FOR CONGRESS",
+   "amount": 4997.0
+  },
+  {
+   "committee": "ADRIAN SMITH FOR CONGRESS",
+   "amount": 4995.0
+  },
+  {
+   "committee": "ADRIANO ESPAILLAT FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CHUCK FLEISCHMANN FOR CONGRESS COMMITTEE, INC.",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ADAM SMITH FOR CONGRESS COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MARIO DIAZ-BALART FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BRITTANY PETTERSEN FOR COLORADO",
+   "amount": 4994.0
+  },
+  {
+   "committee": "TONY GONZALES FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF LUCY MCBATH",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SELF FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SCHNEIDER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ERIC BURLISON FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DR. BRIAN BABIN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FISCHBACH FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "WALBERG FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "PETE AGUILAR FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CORY BOOKER FOR SENATE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MIKE KELLY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "RON ESTES FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "WOMACK FOR CONGRESS COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DIANA FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "COMMITTEE TO ELECT JARED GOLDEN",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ROUNDS FOR SENATE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "RICK W. ALLEN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GRACE FOR NEW YORK",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CITIZENS FOR TURNER",
+   "amount": 4994.0
+  },
+  {
+   "committee": "KUSTOFF FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SIMPSON FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MENENDEZ FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JIM RISCH FOR U.S. SENATE COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DONALD NORCROSS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ANN WAGNER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "COLE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "NEVADANS FOR STEVEN HORSFORD",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LOU CORREA FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CASTOR FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CAPITO FOR WEST VIRGINIA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FALLON FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MAST FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LAHOOD FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DARRELL ISSA FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ELISE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "PETE STAUBER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LUCAS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF NEAL DUNN",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BEN CLINE FOR CONGRESS, INC.",
+   "amount": 4994.0
+  },
+  {
+   "committee": "HUDSON FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JIMMY GOMEZ FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CLARKE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DALE STRONG FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ROBERT ADERHOLT FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CLAUDIA TENNEY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BALDERSON FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BETH VAN DUYNE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ELECT JIM BAIRD FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "VIRGINIA FOXX FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "HUIZENGA FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "RULLI FOR OHIO",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ONDER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "YOUNG KIM FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CAROL FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MAX MILLER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CELESTE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CISCOMANI FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ALASKANS FOR DAN SULLIVAN",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MORGAN GRIFFITH FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SHERI BIGGS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ROGER WILLIAMS FOR U S CONGRESS COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF MICHAEL GUEST",
+   "amount": 4994.0
+  },
+  {
+   "committee": "WILLIAM TIMMONS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JAY OBERNOLTE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MIKE JOHNSON FOR LOUISIANA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GILLEN FOR NY",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BRANDON GILL FOR TEXAS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MARK HARRIS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CARLOS GIMENEZ FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "KELLY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MAGGIE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF DAVE JOYCE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JOE MORELLE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SHONTEL BROWN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF GLENN THOMPSON",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GREG STEUBE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LAURA FRIEDMAN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DANIEL WEBSTER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DAVE TAYLOR FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DR KIM SCHRIER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GLENN F. IVEY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF SCOTT DESJARLAIS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "PETE SESSIONS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SHRI FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CRAWFORD FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "HAL ROGERS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MIKE LEVIN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "NORMA TORRES FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BURCHETT FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MULLIN FOR AMERICA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CISNEROS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SCALISE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SCOTT FRANKLIN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "THE REED COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "TOM BARRETT FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ANDY OGLES FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "STEIL FOR WISCONSIN, INC.",
+   "amount": 4994.0
+  },
+  {
+   "committee": "IOWANS FOR ZACH NUNN",
+   "amount": 4994.0
+  },
+  {
+   "committee": "CRAIG GOLDMAN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SCOTT FITZGERALD FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SHREVE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LANGWORTHY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "PATRIOTS FOR PERRY",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GLENN GROTHMAN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JOHNNY O FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "HUSTED FOR SENATE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LATTA FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "TROY DOWNING FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DR. RAUL RUIZ FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ELIZABETH PANNILL FLETCHER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MIKE HARIDOPOLOS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "TEAM HAGERTY",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LAUREL LEE FOR CONGRESS, INC.",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF TIM MOORE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "LISA MCCLAIN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ADAM GRAY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "NATHANIEL MORAN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BERGMANFORCONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "THE PAT HARRIGAN COMMITTEE",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ANDY HARRIS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MESSMER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "COMMITTEE TO ELECT MIKE EZELL",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BLAKE MOORE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GARY PALMER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SHEILA CHERFILUS MCCORMICK FOR CONGRESS, INC",
+   "amount": 4994.0
+  },
+  {
+   "committee": "NIKEMA FOR CONGRESS, INC",
+   "amount": 4994.0
+  },
+  {
+   "committee": "RUSS FULCHER FOR IDAHO",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JOSH HARDER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BEATTY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "KENNEDY FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "SALAZAR FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "PALLONE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "BICE FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "TITUS FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MCGUIRE FOR VIRGINIA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ERIC SORENSEN FOR ILLINOIS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MOODY FOR FLORIDA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "GEORGE LATIMER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "DAVID ROUZER FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "MCCLINTOCK FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "HOUCHIN FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRENCH HILL FOR ARKANSAS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "FRIENDS OF MCCORMICK",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ABE FOR ARIZONA",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JASON SMITH FOR CONGRESS",
+   "amount": 4994.0
+  },
+  {
+   "committee": "ELECTGABEEVANS.COM",
+   "amount": 4994.0
+  },
+  {
+   "committee": "JOHN CARTER FOR CONGRESS",
+   "amount": 4767.0
+  },
+  {
+   "committee": "LANCE GOODEN FOR CONGRESS COMMITTEE",
+   "amount": 4767.0
+  },
+  {
+   "committee": "TEXANS FOR RONNY JACKSON",
+   "amount": 4767.0
+  },
+  {
+   "committee": "FRIENDS OF MARK WARNER",
+   "amount": 4494.0
+  },
+  {
+   "committee": "CHRIS PAPPAS FOR SENATE",
+   "amount": 4000.0
+  },
+  {
+   "committee": "AUSTIN SCOTT FOR CONGRESS INC",
+   "amount": 3994.0
+  },
+  {
+   "committee": "KANSANS FOR MARSHALL",
+   "amount": 3994.0
+  },
+  {
+   "committee": "BILL CASSIDY FOR US SENATE",
+   "amount": 2994.0
+  },
+  {
+   "committee": "TEAM GRAHAM, INC.",
+   "amount": 2494.0
+  },
+  {
+   "committee": "MIKE ROGERS FOR CONGRESS",
+   "amount": 1494.0
+  },
+  {
+   "committee": "GABE AMO FOR CONGRESS",
+   "amount": 994.0
+  },
+  {
+   "committee": "ASHLEY FOR IOWA",
+   "amount": 0.0
+  },
+  {
+   "committee": "ELFRETH FOR MARYLAND",
+   "amount": 0.0
+  },
+  {
+   "committee": "JOSH BRECHEEN FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "KAT FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "DAVID SCOTT FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "VICTORIA SPARTZ FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "DELBENE FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "GUTHRIE FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "COMER FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "APRIL MCCLAIN DELANEY FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "THE BILL KEATING COMMITTEE",
+   "amount": -6.0
+  },
+  {
+   "committee": "RICHARD E NEAL FOR CONGRESS COMMITTEE",
+   "amount": -6.0
+  },
+  {
+   "committee": "HOYER FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "MAGAZINER FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "DOUG LAMALFA COMMITTEE",
+   "amount": -6.0
+  },
+  {
+   "committee": "ANNA PAULINA LUNA FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "JULIA LETLOW FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "HICKENLOOPER FOR COLORADO",
+   "amount": -6.0
+  },
+  {
+   "committee": "VERN BUCHANAN FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "DAN NEWHOUSE FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "LUMMIS FOR WYOMING INC.",
+   "amount": -6.0
+  },
+  {
+   "committee": "CASE FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "MARC VEASEY CONGRESSIONAL CAMPAIGN COMMITTEE",
+   "amount": -6.0
+  },
+  {
+   "committee": "LOUDERMILK FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "JOSH GOTTHEIMER FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "BURGESS 4 UTAH",
+   "amount": -6.0
+  },
+  {
+   "committee": "SCOTT PETERS FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "MARY MILLER FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "DAN GOLDMAN FOR NEW YORK",
+   "amount": -6.0
+  },
+  {
+   "committee": "AMODEI FOR NEVADA",
+   "amount": -6.0
+  },
+  {
+   "committee": "FRIENDS OF ROSA DELAURO",
+   "amount": -6.0
+  },
+  {
+   "committee": "TEXANS FOR JODEY ARRINGTON",
+   "amount": -6.0
+  },
+  {
+   "committee": "HAGEMAN FOR WYOMING",
+   "amount": -6.0
+  },
+  {
+   "committee": "FREDERICA S. WILSON FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "JULIA BROWNLEY FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "SWALWELL FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "STANTON FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "JEFFRIES FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "NIKKI FOR CONGRESS",
+   "amount": -6.0
+  },
+  {
+   "committee": "NANCY PELOSI FOR CONGRESS",
+   "amount": -188.0
+  },
+  {
+   "committee": "CLIFF BENTZ FOR CONGRESS",
+   "amount": -5000.0
+  },
+  {
+   "committee": "CHRISSY HOULAHAN FOR CONGRESS",
+   "amount": -5000.0
+  },
+  {
+   "committee": "SYLVIA GARCIA FOR CONGRESS",
+   "amount": -5000.0
+  },
+  {
+   "committee": "SUHAS FOR VIRGINIA",
+   "amount": -5000.0
+  },
+  {
+   "committee": "EMILY RANDALL FOR CONGRESS",
+   "amount": -5000.0
+  },
+  {
+   "committee": "TIFFANY FOR WISCONSIN, INC.",
+   "amount": -5000.0
+  },
+  {
+   "committee": "PAT RYAN FOR CONGRESS",
+   "amount": -15006.0
+  },
+  {
+   "committee": "SETH FOR MASSACHUSETTS",
+   "amount": -37301.0
+  }
+ ],
+ "aipac_pac_gift_total": 1870805.0,
+ "udp_vendor_payments": []
+}

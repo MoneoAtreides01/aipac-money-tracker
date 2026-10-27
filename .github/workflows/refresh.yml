@@ -1,0 +1,42 @@
+name: Refresh AIPAC data
+
+on:
+  schedule:
+    # 11:00 UTC = 07:00 Eastern during daylight saving, 06:00 in winter.
+    # FEC filings land overnight, so this catches the previous day.
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh from the FEC
+        env:
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+        run: python refresh.py api
+
+      - name: Commit if the data moved
+        run: |
+          git config user.name "aipac-tracker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add AIPAC-Money-Tracker.html site/index.html data/seed.json data/derived.json data/last_refresh.txt
+          if git diff --cached --quiet; then
+            echo "No change in the filings today."
+            exit 0
+          fi
+          git commit -m "Data refresh $(date -u +%F)" -m "$(cat data/last_refresh.txt)"
+          git push
