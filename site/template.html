@@ -209,7 +209,7 @@ footer .stamp { display: block; margin-top: 16px; }
       <a href="#went">Where it went</a>
       <a href="#ledger">Ledger</a>
     </nav>
-    <span class="stamp">filings through 14 Oct 2026</span>
+    <span class="stamp" id="top-stamp">filings through 14 Oct 2026</span>
   </div>
 </header>
 
@@ -661,7 +661,8 @@ footer .stamp { display: block; margin-top: 16px; }
   }).join("");
   $("built-at").textContent = "Snapshot " + niceDate(DATA.seed.built_at) +
     " · filings through " + niceDate(DATA.seed.coverage_end);
-  $("top-stamp").textContent = "files through " + niceDate(DATA.seed.coverage_end);
+  var topStamp = $("top-stamp");
+  if (topStamp) topStamp.textContent = "files through " + niceDate(DATA.seed.coverage_end);
 
   watchNumbers(document);
 })();
