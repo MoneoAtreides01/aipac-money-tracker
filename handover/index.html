@@ -302,39 +302,39 @@ footer .stamp { display: block; margin-top: 16px; }
           <text class="nm" x="338" y="58">AIPAC PAC</text>
           <text class="sub" x="338" y="80">Gives to candidates directly</text>
           <text class="sub" x="338" y="96">Capped at $5,000 each</text>
-          <text class="fig" x="338" y="126">$57.8M raised</text>
+          <text class="fig" x="338" y="126" id="fig-pac">$57.8M raised</text>
         </g>
         <g class="node">
           <rect class="box" x="320" y="225" width="330" height="130"/>
           <text class="nm" x="338" y="253">United Democracy Project</text>
           <text class="sub" x="338" y="275">Super PAC: unlimited spending,</text>
           <text class="sub" x="338" y="291">no gifts to candidates</text>
-          <text class="fig" x="338" y="321">$112.8M raised</text>
+          <text class="fig" x="338" y="321" id="fig-udp">$112.8M raised</text>
         </g>
         <g class="node">
           <rect class="box" x="320" y="430" width="330" height="120"/>
           <text class="nm" x="338" y="458">AIPAC 501(c)(4)</text>
           <text class="sub" x="338" y="480">Nonprofit: does not name donors</text>
-          <text class="fig" x="338" y="510">$1.14B since 2011</text>
+          <text class="fig" x="338" y="510" id="fig-c4">$1.14B since 2011</text>
         </g>
 
         <g class="node">
           <rect class="box" x="830" y="55" width="210" height="80"/>
-          <text class="nm2" x="846" y="83">323 candidate</text>
+          <text class="nm2" x="846" y="83" id="fig-cand-num">323 candidate</text>
           <text class="nm2" x="846" y="99">committees</text>
-          <text class="fig-s" x="846" y="122">$1.9M direct</text>
+          <text class="fig-s" x="846" y="122" id="fig-cand">$1.9M direct</text>
         </g>
         <g class="node">
           <rect class="box" x="830" y="215" width="210" height="80"/>
           <text class="nm2" x="846" y="243">Ads for and</text>
           <text class="nm2" x="846" y="259">against candidates</text>
-          <text class="fig-s" x="846" y="282">$53.4M</text>
+          <text class="fig-s" x="846" y="282" id="fig-ads">$53.4M</text>
         </g>
         <g class="node">
           <rect class="box" x="830" y="320" width="210" height="80"/>
           <text class="nm2" x="846" y="348">Six middleman</text>
           <text class="nm2" x="846" y="364">PACs</text>
-          <text class="fig-s" x="846" y="387">$13.1M</text>
+          <text class="fig-s" x="846" y="387" id="fig-pass">$13.1M</text>
         </g>
         <g class="node">
           <rect class="box" x="830" y="455" width="210" height="70"/>
@@ -344,10 +344,10 @@ footer .stamp { display: block; margin-top: 16px; }
       </svg>
 
       <div class="flow-list" aria-hidden="true">
-        <div class="flow-item"><b>Named donors</b> → <b>AIPAC PAC</b> → 323 candidate committees, <span class="amt">$1.9M</span></div>
-        <div class="flow-item"><b>Named donors</b> → <b>United Democracy Project</b> → ads, <span class="amt">$53.4M</span></div>
-        <div class="flow-item"><b>United Democracy Project</b> → six middleman PACs, <span class="amt">$13.1M</span></div>
-        <div class="flow-item"><b>Unknown donors</b> → <b>AIPAC 501(c)(4)</b> → lobbying, <span class="amt">$1.14B since 2011</span></div>
+        <div class="flow-item"><b>Named donors</b> → <b>AIPAC PAC</b> → 323 candidate committees, <span class="amt" id="m-cand">$1.9M</span></div>
+        <div class="flow-item"><b>Named donors</b> → <b>United Democracy Project</b> → ads, <span class="amt" id="m-ads">$53.4M</span></div>
+        <div class="flow-item"><b>United Democracy Project</b> → six middleman PACs, <span class="amt" id="m-pass">$13.1M</span></div>
+        <div class="flow-item"><b>Unknown donors</b> → <b>AIPAC 501(c)(4)</b> → lobbying, <span class="amt" id="m-c4">$1.14B since 2011</span></div>
       </div>
 
       <div class="legend">
@@ -483,25 +483,29 @@ footer .stamp { display: block; margin-top: 16px; }
     var target = parseFloat(el.dataset.target || "0");
     if (!isFinite(target)) return;
     var u = unitFor(target);
-    var show = function (v) { return "$" + (v / u[0]).toFixed(u[1]) + u[2]; };
+    var suffix = el.dataset.suffix || "";
+    var show = function (v) { return "$" + (v / u[0]).toFixed(u[1]) + u[2] + suffix; };
     if (reduced) { el.textContent = show(target); return; }
-    var start = null, dur = 850, done = false;
+    var start = null, dur = 4000, done = false;
+    function ease(p) { return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
     function finish() { if (!done) { done = true; el.textContent = show(target); } }
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min(1, (ts - start) / dur);
-      if (p < 1) { el.textContent = show(target * (1 - Math.pow(1 - p, 3))); requestAnimationFrame(step); }
+      el.textContent = show(target * ease(p));
+      if (p < 1) requestAnimationFrame(step);
       else finish();
     }
+    el.textContent = show(0);
     requestAnimationFrame(step);
-    setTimeout(finish, dur + 150);
+    setTimeout(finish, dur + 200);
   }
   function watchNumbers(root) {
     var els = root.querySelectorAll("[data-target]");
     if (!("IntersectionObserver" in window) || reduced) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { io.unobserve(en.target); en.target.textContent = "$0"; animate(en.target); }
+        if (en.isIntersecting) { io.unobserve(en.target); animate(en.target); }
       });
     }, { threshold: 0.35 });
     Array.prototype.forEach.call(els, function (el) { io.observe(el); });
@@ -527,7 +531,7 @@ footer .stamp { display: block; margin-top: 16px; }
       var len = w.getTotalLength();
       w.style.strokeDasharray = len + " " + len;
       w.style.strokeDashoffset = len;
-      w.style.transition = "stroke-dashoffset 1.1s cubic-bezier(.2,.7,.3,1) " + (i * 0.09).toFixed(2) + "s";
+      w.style.transition = "stroke-dashoffset 1.5s cubic-bezier(.45,0,.25,1) " + (i * 0.2).toFixed(2) + "s";
     });
     var draw = function () {
       Array.prototype.forEach.call(wires, function (w) { w.style.strokeDashoffset = 0; });
@@ -559,6 +563,27 @@ footer .stamp { display: block; margin-top: 16px; }
     ledgerRow(pac.name, "pub", "Public", pac.receipts, pac.disbursements, pac.cash_on_hand, "2026 to " + niceDate(DATA.seed.coverage_end).split(" ").slice(0, 2).join(" "), pac.url, pac.id) +
     ledgerRow(c4.name, "never", "Never public", c4last.revenue, c4last.expenses, c4last.assets, "FY" + c4last.year, c4.url, "") +
     ledgerRow(c3.name, "never", "Never public", c3last.revenue, c3last.expenses, c3last.assets, "FY" + c3last.year, c3.url, "");
+
+  /* diagram figures follow the data */
+  var setFig = function (id, value, suffix) {
+    var el = $(id);
+    if (!el) return;
+    el.dataset.target = value;
+    el.dataset.suffix = suffix || "";
+    el.textContent = fmtM(value) + (suffix || "");
+  };
+  setFig("fig-pac", pac.receipts, " raised");
+  setFig("fig-udp", udp.receipts, " raised");
+  setFig("fig-c4", c4.revenue_total, " since 2011");
+  setFig("fig-cand", DATA.derived.aipac_pac_gift_total, " direct");
+  setFig("fig-ads", DATA.derived.ie_total, "");
+  setFig("fig-pass", DATA.derived.conduit_total, "");
+  setFig("m-cand", DATA.derived.aipac_pac_gift_total, "");
+  setFig("m-ads", DATA.derived.ie_total, "");
+  setFig("m-pass", DATA.derived.conduit_total, "");
+  setFig("m-c4", c4.revenue_total, " since 2011");
+  var candCount = $("fig-cand-num");
+  if (candCount) candCount.textContent = DATA.derived.aipac_pac_candidate_gifts.length + " candidate";
 
   var conduits = DATA.derived.conduits || [];
   if (conduits.length) {

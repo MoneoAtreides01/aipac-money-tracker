@@ -474,25 +474,29 @@ footer .stamp { display: block; margin-top: 16px; }
     var target = parseFloat(el.dataset.target || "0");
     if (!isFinite(target)) return;
     var u = unitFor(target);
-    var show = function (v) { return "$" + (v / u[0]).toFixed(u[1]) + u[2]; };
+    var suffix = el.dataset.suffix || "";
+    var show = function (v) { return "$" + (v / u[0]).toFixed(u[1]) + u[2] + suffix; };
     if (reduced) { el.textContent = show(target); return; }
-    var start = null, dur = 850, done = false;
+    var start = null, dur = 4000, done = false;
+    function ease(p) { return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
     function finish() { if (!done) { done = true; el.textContent = show(target); } }
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min(1, (ts - start) / dur);
-      if (p < 1) { el.textContent = show(target * (1 - Math.pow(1 - p, 3))); requestAnimationFrame(step); }
+      el.textContent = show(target * ease(p));
+      if (p < 1) requestAnimationFrame(step);
       else finish();
     }
+    el.textContent = show(0);
     requestAnimationFrame(step);
-    setTimeout(finish, dur + 150);
+    setTimeout(finish, dur + 200);
   }
   function watchNumbers(root) {
     var els = root.querySelectorAll("[data-target]");
     if (!("IntersectionObserver" in window) || reduced) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { io.unobserve(en.target); en.target.textContent = "$0"; animate(en.target); }
+        if (en.isIntersecting) { io.unobserve(en.target); animate(en.target); }
       });
     }, { threshold: 0.35 });
     Array.prototype.forEach.call(els, function (el) { io.observe(el); });
@@ -518,7 +522,7 @@ footer .stamp { display: block; margin-top: 16px; }
       var len = w.getTotalLength();
       w.style.strokeDasharray = len + " " + len;
       w.style.strokeDashoffset = len;
-      w.style.transition = "stroke-dashoffset 1.1s cubic-bezier(.2,.7,.3,1) " + (i * 0.09).toFixed(2) + "s";
+      w.style.transition = "stroke-dashoffset 1.5s cubic-bezier(.45,0,.25,1) " + (i * 0.2).toFixed(2) + "s";
     });
     var draw = function () {
       Array.prototype.forEach.call(wires, function (w) { w.style.strokeDashoffset = 0; });
@@ -552,18 +556,25 @@ footer .stamp { display: block; margin-top: 16px; }
     ledgerRow(c3.name, "never", "Never public", c3last.revenue, c3last.expenses, c3last.assets, "FY" + c3last.year, c3.url, "");
 
   /* diagram figures follow the data */
-  var setText = function (id, text) { var el = $(id); if (el) el.textContent = text; };
-  setText("fig-pac", fmtM(pac.receipts) + " raised");
-  setText("fig-udp", fmtM(udp.receipts) + " raised");
-  setText("fig-c4", fmtM(c4.revenue_total) + " since 2011");
-  setText("fig-cand-num", DATA.derived.aipac_pac_candidate_gifts.length + " candidate");
-  setText("fig-cand", fmtM(DATA.derived.aipac_pac_gift_total) + " direct");
-  setText("fig-ads", fmtM(DATA.derived.ie_total));
-  setText("fig-pass", fmtM(DATA.derived.conduit_total));
-  setText("m-cand", fmtM(DATA.derived.aipac_pac_gift_total));
-  setText("m-ads", fmtM(DATA.derived.ie_total));
-  setText("m-pass", fmtM(DATA.derived.conduit_total));
-  setText("m-c4", fmtM(c4.revenue_total) + " since 2011");
+  var setFig = function (id, value, suffix) {
+    var el = $(id);
+    if (!el) return;
+    el.dataset.target = value;
+    el.dataset.suffix = suffix || "";
+    el.textContent = fmtM(value) + (suffix || "");
+  };
+  setFig("fig-pac", pac.receipts, " raised");
+  setFig("fig-udp", udp.receipts, " raised");
+  setFig("fig-c4", c4.revenue_total, " since 2011");
+  setFig("fig-cand", DATA.derived.aipac_pac_gift_total, " direct");
+  setFig("fig-ads", DATA.derived.ie_total, "");
+  setFig("fig-pass", DATA.derived.conduit_total, "");
+  setFig("m-cand", DATA.derived.aipac_pac_gift_total, "");
+  setFig("m-ads", DATA.derived.ie_total, "");
+  setFig("m-pass", DATA.derived.conduit_total, "");
+  setFig("m-c4", c4.revenue_total, " since 2011");
+  var candCount = $("fig-cand-num");
+  if (candCount) candCount.textContent = DATA.derived.aipac_pac_candidate_gifts.length + " candidate";
 
   var conduits = DATA.derived.conduits || [];
   if (conduits.length) {
