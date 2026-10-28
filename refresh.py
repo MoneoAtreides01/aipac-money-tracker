@@ -78,7 +78,15 @@ def paged(path, **params):
     """
     last = {}
     page = 1
+    seen = 0
     while True:
+        seen += 1
+        if seen > 60:
+            raise RuntimeError(
+                f"pagination did not terminate after 60 pages on {path}; "
+                "the FEC keyset is repeating. Refusing to hang.")
+        if seen % 10 == 0:
+            print(f"  {path}: {seen} pages", file=sys.stderr)
         q = dict(params)
         if last:
             q.update(last)
