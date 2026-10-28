@@ -1,6 +1,7 @@
 # AIPAC Money Tracker
 
-New here? Read `START-HERE.md` first.
+New here? Read `START-HERE.md` first. The updater has one open issue, written
+up in `OPEN-PROBLEM.md`.
 
 Tracks the money behind AIPAC's electoral operation from public filings, and
 keeps tracking it after AIPAC's 21 October 2026 announcement that it will stop

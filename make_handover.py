@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "dist" / "AIPAC-Money-Tracker-handover.zip"
 
 INCLUDE = [
-    "START-HERE.md", "README.md", "LICENSE", "requirements.txt", ".env.example", ".gitignore",
+    "START-HERE.md", "README.md", "OPEN-PROBLEM.md", "LICENSE", "requirements.txt", ".env.example", ".gitignore",
     "refresh.py", "parse_bulk.py", "make_seed.py", "ingest.py", "build_site.py",
     "test_refresh.py", "AIPAC-Money-Tracker.html", "index.html",
     "site/template.html", "site/index.html",

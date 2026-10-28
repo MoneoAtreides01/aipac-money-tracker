@@ -3,6 +3,12 @@
 You have one self-contained page and the code that keeps it current. Viewing the
 page needs no server, database or key.
 
+## If you are here to fix the updater
+
+Read **`OPEN-PROBLEM.md`** first. The published page is correct; the API refresh
+is the unfinished part. That file lists what has been fixed, the exact failure,
+the evidence gathered, what has been ruled out, and what to try next.
+
 ## The ten-minute path
 
 1. Create a repository and push this folder.
