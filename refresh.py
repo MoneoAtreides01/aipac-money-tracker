@@ -479,24 +479,20 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Find the cursor form that advances Schedule B."""
+    """Compare keyset behaviour for the PAC at two page sizes."""
     need_key()
-    d = fec("/schedules/schedule_b/", committee_id=UDP, cycle=cycle, per_page=5)
-    li = d["pagination"]["last_indexes"]
-    first = d["results"][0]
-    print("page1 first:", first.get("recipient_name"), first.get("disbursement_date"), first.get("sub_id"))
-    print("last_indexes:", li)
+    for pp in (5, 100):
+        d = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=pp)
+        rows = d.get("results", [])
+        li = d["pagination"].get("last_indexes") or {}
+        a = rows[0] if rows else {}
+        z = rows[-1] if rows else {}
+        print(f"pp={pp} page1: {len(rows)} rows, first {a.get('sub_id')}, last {z.get('sub_id')}")
+        print(f"pp={pp} cursor: {li}")
+        e = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=pp, **li)
+        r2 = (e.get("results") or [{}])[0]
+        print(f"pp={pp} page2 first: {r2.get('sub_id')}  (same as page1 first: {r2.get('sub_id') == a.get('sub_id')})")
 
-    def probe(label, **extra):
-        e = fec("/schedules/schedule_b/", committee_id=UDP, cycle=cycle, per_page=5, **extra)
-        rows = e.get("results", [])
-        r = rows[0] if rows else {}
-        print(label, "->", r.get("recipient_name"), r.get("disbursement_date"), r.get("sub_id"))
-
-    probe("both cursors", **li)
-    probe("index only", last_index=li.get("last_index"))
-    probe("date only", last_disbursement_date=li.get("last_disbursement_date"))
-    probe("page=2", page=2)
 
 def doctor(cycle):
     """Pre-flight: check the key, the endpoints and the field shapes."""
