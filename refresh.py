@@ -479,25 +479,24 @@ def write(seed, derived):
 
 
 def debug(cycle):
-    """Inspect AIPAC PAC's Schedule B rows to separate gifts from earmarks."""
+    """Find the cursor form that advances Schedule B."""
     need_key()
-    d = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=5)
-    print("pagination", d.get("pagination"))
-    for r in d.get("results", [])[:3]:
-        print({k: v for k, v in r.items() if k in (
-            "recipient_name", "disbursement_amount", "disbursement_type",
-            "disbursement_type_full", "transaction_type", "entity_type",
-            "memoed_subtotal", "memo_code", "line_number")})
+    d = fec("/schedules/schedule_b/", committee_id=UDP, cycle=cycle, per_page=5)
+    li = d["pagination"]["last_indexes"]
+    first = d["results"][0]
+    print("page1 first:", first.get("recipient_name"), first.get("disbursement_date"), first.get("sub_id"))
+    print("last_indexes:", li)
 
-    print()
-    page1 = fec("/schedules/schedule_b/", committee_id=AIPAC_PAC, cycle=cycle, per_page=100)
-    types = {}
-    for r in page1.get("results", []):
-        k = (r.get("disbursement_type"), r.get("entity_type"), r.get("memoed_subtotal"))
-        types[k] = types.get(k, 0) + 1
-    for k, v in sorted(types.items(), key=lambda kv: -kv[1]):
-        print(v, k)
+    def probe(label, **extra):
+        e = fec("/schedules/schedule_b/", committee_id=UDP, cycle=cycle, per_page=5, **extra)
+        rows = e.get("results", [])
+        r = rows[0] if rows else {}
+        print(label, "->", r.get("recipient_name"), r.get("disbursement_date"), r.get("sub_id"))
 
+    probe("both cursors", **li)
+    probe("index only", last_index=li.get("last_index"))
+    probe("date only", last_disbursement_date=li.get("last_disbursement_date"))
+    probe("page=2", page=2)
 
 def doctor(cycle):
     """Pre-flight: check the key, the endpoints and the field shapes."""
